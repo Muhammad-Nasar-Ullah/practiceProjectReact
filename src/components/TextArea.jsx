@@ -19,6 +19,8 @@ const TextArea = ({ mode }) => {
     } = FunctionsOfTextArea();
 
     let totalwords = text.split(' ').filter(word => word !== '').length;
+    let min = Math.floor(text.length / 150);
+    let sec = Math.ceil((text.length % 150) / 2.5);
     let time = (0.50 * totalwords) / 60;
 
     return (
@@ -37,7 +39,7 @@ const TextArea = ({ mode }) => {
 
             <h1 className={`text-2xl font-bold ${mode === 'dark' ? 'text-white' : 'text-black'}`}>Preview</h1>
             <p className={`${mode === 'dark' ? 'text-white' : 'text-black'}`}>{totalwords} {totalwords < 2 ? 'word' : 'words'} {text.length} {text.length < 2 ? 'character' : 'characters'}</p >
-            <p className={`${mode === 'dark' ? 'text-white' : 'text-black'}`}>{time} {time < 2 ? 'minute' : 'minutes'} to read</p>
+            <p className={`${mode === 'dark' ? 'text-white' : 'text-black'}`}>{min} {min < 2 ? 'minute' : 'minutes'} {sec} {sec < 2 ? 'second' : 'seconds'} to read</p>
             <p className={`whitespace-pre-wrap ${mode === 'dark' ? 'text-white' : 'text-black'}`}>{text.length > 0 ? text : 'Enter your text to preview here'}</p>
 
         </div>
