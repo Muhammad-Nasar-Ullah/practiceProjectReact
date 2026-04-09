@@ -49,7 +49,7 @@ export const FunctionsOfTextArea = () => {
             .trim();
 
         setText(cleaned);
-        setAction('Removed')
+        setAction('Removed extra spaces, tabs and new lines')
         setTimeout(() => {
             setAction('')
         }, 2000)
