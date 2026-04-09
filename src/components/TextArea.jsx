@@ -1,14 +1,11 @@
 import React from 'react'
 import { FunctionsOfTextArea } from '../functions/FunctionsOfTextArea'
+import { useActionData } from 'react-router-dom';
 
 const TextArea = ({ mode }) => {
     const {
         text,
-        copybtn,
-        clearbtn,
-        upercasebtn,
-        lowercasebtn,
-        extraspacebtn,
+        action,
         disablebtn,
         handleOnChange,
         handleUpClick,
@@ -25,16 +22,21 @@ const TextArea = ({ mode }) => {
 
     return (
         <div className='flex flex-col gap-5 w-[90%] md:w-[60%] lg:w-[50%] mx-auto my-5 rounded-lg'>
+
+            <div className={`h-[20px] my-3`}>
+                <p className={`${action ? 'block' : 'hidden'} bg-green-400 text-white font-bold rounded-md p-2`}>Success: {action}</p>
+            </div>
+
             <h2 className={`text-2xl font-bold ${mode === 'dark' ? 'text-white' : 'text-black'}`}>Enter Your Text Here</h2>
 
             <textarea name="" id="" value={text} onChange={handleOnChange} cols="30" rows="10" className={`border-2 border-black rounded-md p-2 ${mode === 'dark' ? 'bg-gray-800 text-white' : 'bg-gray-200 text-black'}`}></textarea>
 
             <div className='flex gap-2 flex-wrap'>
-                <button onClick={handleUpClick} disabled={disablebtn} className={`px-4 py-2 rounded-md ${mode === 'light' ? 'bg-black text-white' : 'bg-white text-black'} ${disablebtn ? 'opacity-50' : ''}`} style={{ cursor: disablebtn ? 'not-allowed' : 'pointer' }}>{upercasebtn}</button>
-                <button onClick={handleLowClick} disabled={disablebtn} className={`px-4 py-2 rounded-md ${mode === 'light' ? 'bg-black text-white' : 'bg-white text-black'} ${disablebtn ? 'opacity-50' : ''}`} style={{ cursor: disablebtn ? 'not-allowed' : 'pointer' }}>{lowercasebtn}</button>
-                <button onClick={handleClearClick} disabled={disablebtn} className={`px-4 py-2 rounded-md ${mode === 'light' ? 'bg-black text-white' : 'bg-white text-black'} ${disablebtn ? 'opacity-50' : ''}`} style={{ cursor: disablebtn ? 'not-allowed' : 'pointer' }}>{clearbtn}</button>
-                <button onClick={handleCopyClick} disabled={disablebtn} className={`px-4 py-2 rounded-md ${mode === 'light' ? 'bg-black text-white' : 'bg-white text-black'} ${disablebtn ? 'opacity-50' : ''}`} style={{ cursor: disablebtn ? 'not-allowed' : 'pointer' }}>{copybtn}</button>
-                <button onClick={handleExtraSpaceClick} disabled={disablebtn} className={`px-4 py-2 rounded-md ${mode === 'light' ? 'bg-black text-white' : 'bg-white text-black'} ${disablebtn ? 'opacity-50' : ''}`} style={{ cursor: disablebtn ? 'not-allowed' : 'pointer' }}>{extraspacebtn}</button>
+                <button onClick={handleUpClick} disabled={disablebtn} className={`px-4 py-2 rounded-md ${mode === 'light' ? 'bg-black text-white' : 'bg-white text-black'} ${disablebtn ? 'opacity-50' : ''}`} style={{ cursor: disablebtn ? 'not-allowed' : 'pointer' }}>Convert to Uppercase</button>
+                <button onClick={handleLowClick} disabled={disablebtn} className={`px-4 py-2 rounded-md ${mode === 'light' ? 'bg-black text-white' : 'bg-white text-black'} ${disablebtn ? 'opacity-50' : ''}`} style={{ cursor: disablebtn ? 'not-allowed' : 'pointer' }}>Convert to Lowercase</button>
+                <button onClick={handleClearClick} disabled={disablebtn} className={`px-4 py-2 rounded-md ${mode === 'light' ? 'bg-black text-white' : 'bg-white text-black'} ${disablebtn ? 'opacity-50' : ''}`} style={{ cursor: disablebtn ? 'not-allowed' : 'pointer' }}>Clear Text</button>
+                <button onClick={handleCopyClick} disabled={disablebtn} className={`px-4 py-2 rounded-md ${mode === 'light' ? 'bg-black text-white' : 'bg-white text-black'} ${disablebtn ? 'opacity-50' : ''}`} style={{ cursor: disablebtn ? 'not-allowed' : 'pointer' }}>Copy Text</button>
+                <button onClick={handleExtraSpaceClick} disabled={disablebtn} className={`px-4 py-2 rounded-md ${mode === 'light' ? 'bg-black text-white' : 'bg-white text-black'} ${disablebtn ? 'opacity-50' : ''}`} style={{ cursor: disablebtn ? 'not-allowed' : 'pointer' }}>Remove Extra Space</button>
             </div>
 
             <h1 className={`text-2xl font-bold ${mode === 'dark' ? 'text-white' : 'text-black'}`}>Preview</h1>

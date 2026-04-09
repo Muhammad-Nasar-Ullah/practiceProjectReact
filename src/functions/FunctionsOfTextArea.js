@@ -1,13 +1,9 @@
 import { useState, useEffect } from 'react';
 
 export const FunctionsOfTextArea = () => {
-    const [copybtn, setCopybtn] = useState('Copy Text')
-    const [clearbtn, setClearbtn] = useState('Clear Text')
-    const [upercasebtn, setUpercasebtn] = useState('Convert to Uppercase')
-    const [lowercasebtn, setLowercasebtn] = useState('Convert to Lowercase')
-    const [extraspacebtn, setExtraspacebtn] = useState('Remove Extra Space')
     const [disablebtn, setDisablebtn] = useState(true)
     const [text, setText] = useState("")
+    const [action, setAction] = useState("")
 
     const handleOnChange = (event) => {
         setText(event.target.value)
@@ -15,34 +11,34 @@ export const FunctionsOfTextArea = () => {
 
     const handleUpClick = () => {
         setText(text.toUpperCase())
-        setUpercasebtn('Converted')
+        setAction('Converted')
         setTimeout(() => {
-            setUpercasebtn('Convert to Uppercase')
-        }, 1000)
+            setAction('')
+        }, 2000)
     }
 
     const handleLowClick = () => {
         setText(text.toLowerCase())
-        setLowercasebtn('Converted')
+        setAction('Converted')
         setTimeout(() => {
-            setLowercasebtn('Convert to Lowercase')
-        }, 1000)
+            setAction('')
+        }, 2000)
     }
 
     const handleClearClick = () => {
         setText('')
-        setClearbtn('Cleared');
+        setAction('Cleared');
         setTimeout(() => {
-            setClearbtn('Clear Text');
-        }, 1000)
+            setAction('')
+        }, 2000)
     }
 
     const handleCopyClick = () => {
         navigator.clipboard.writeText(text)
-        setCopybtn('Coppied');
+        setAction('Coppied');
         setTimeout(() => {
-            setCopybtn('Copy Text');
-        }, 1000)
+            setAction('')
+        }, 2000)
     }
 
     const handleExtraSpaceClick = () => {
@@ -53,10 +49,10 @@ export const FunctionsOfTextArea = () => {
             .trim();
 
         setText(cleaned);
-        setExtraspacebtn('Removed')
+        setAction('Removed')
         setTimeout(() => {
-            setExtraspacebtn('Remove Extra Space')
-        }, 1000)
+            setAction('')
+        }, 2000)
     }
 
     useEffect(() => {
@@ -69,11 +65,7 @@ export const FunctionsOfTextArea = () => {
 
     return {
         text,
-        copybtn,
-        clearbtn,
-        upercasebtn,
-        lowercasebtn,
-        extraspacebtn,
+        action,
         disablebtn,
         handleOnChange,
         handleUpClick,
