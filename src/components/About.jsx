@@ -2,7 +2,7 @@ import React from 'react'
 
 const About = ({ mode }) => {
     return (
-        <div className='flex flex-col gap-5 w-[40%] mx-auto my-5'>
+        <div className='flex flex-col gap-5 w-[90%] md:w-[80%] lg:w-[60%] mx-auto my-5'>
             <h1 className={`text-2xl font-bold ${mode === 'dark' ? 'text-white' : 'text-black'}`}>About Us</h1>
 
             <div className='flex flex-col gap-2'>
