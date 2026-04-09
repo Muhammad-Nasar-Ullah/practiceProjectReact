@@ -5,6 +5,7 @@ export const FunctionsOfTextArea = () => {
     const [clearbtn, setClearbtn] = useState('Clear Text')
     const [upercasebtn, setUpercasebtn] = useState('Convert to Uppercase')
     const [lowercasebtn, setLowercasebtn] = useState('Convert to Lowercase')
+    const [extraspacebtn, setExtraspacebtn] = useState('Remove Extra Space')
     const [disablebtn, setDisablebtn] = useState(true)
     const [text, setText] = useState("")
 
@@ -44,13 +45,27 @@ export const FunctionsOfTextArea = () => {
         }, 1000)
     }
 
+    const handleExtraSpaceClick = () => {
+
+        let cleaned = text
+            .replace(/[^\S\n]+/g, ' ')
+            .replace(/\n+/g, '\n')
+            .trim();
+
+        setText(cleaned);
+        setExtraspacebtn('Removed')
+        setTimeout(() => {
+            setExtraspacebtn('Remove Extra Space')
+        }, 1000)
+    }
+
     useEffect(() => {
         if (text === '') {
             setDisablebtn(true)
         } else {
             setDisablebtn(false)
         }
-    }, [text], [handleUpClick, handleLowClick, handleClearClick, handleCopyClick]);
+    }, [text], [handleUpClick, handleLowClick, handleClearClick, handleCopyClick, handleExtraSpaceClick]);
 
     return {
         text,
@@ -58,11 +73,13 @@ export const FunctionsOfTextArea = () => {
         clearbtn,
         upercasebtn,
         lowercasebtn,
+        extraspacebtn,
         disablebtn,
         handleOnChange,
         handleUpClick,
         handleLowClick,
         handleClearClick,
-        handleCopyClick
+        handleCopyClick,
+        handleExtraSpaceClick
     }
 }
