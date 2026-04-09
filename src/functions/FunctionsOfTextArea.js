@@ -11,7 +11,7 @@ export const FunctionsOfTextArea = () => {
 
     const handleUpClick = () => {
         setText(text.toUpperCase())
-        setAction('Converted')
+        setAction('Converted to uppercase')
         setTimeout(() => {
             setAction('')
         }, 2000)
@@ -19,7 +19,7 @@ export const FunctionsOfTextArea = () => {
 
     const handleLowClick = () => {
         setText(text.toLowerCase())
-        setAction('Converted')
+        setAction('Converted to lowercase')
         setTimeout(() => {
             setAction('')
         }, 2000)
@@ -27,7 +27,7 @@ export const FunctionsOfTextArea = () => {
 
     const handleClearClick = () => {
         setText('')
-        setAction('Cleared');
+        setAction('Cleared text');
         setTimeout(() => {
             setAction('')
         }, 2000)
@@ -35,7 +35,7 @@ export const FunctionsOfTextArea = () => {
 
     const handleCopyClick = () => {
         navigator.clipboard.writeText(text)
-        setAction('Coppied');
+        setAction('Coppied to clipboard');
         setTimeout(() => {
             setAction('')
         }, 2000)
