@@ -28,8 +28,8 @@ const Contact = ({ mode }) => {
     };
 
     return (
-        <section className={`min-h-screen flex items-center justify-center px-4 ${mode === 'dark' ? 'bg-gray-600 text-white' : 'bg-white text-black'}`}>
-            <div className={`max-w-5xl w-full shadow-lg rounded-2xl p-8 grid md:grid-cols-2 gap-8 ${mode === 'dark' ? 'bg-gray-800 text-white' : 'bg-gray-100 text-black'}`}>
+        <section className={`min-h-screen flex items-center justify-center px-4 transition-all duration-500 ${mode === 'dark' ? 'bg-gray-600 text-white' : 'bg-white text-black'}`}>
+            <div className={`max-w-5xl w-full shadow-lg rounded-2xl p-8 grid md:grid-cols-2 gap-8 transition-all duration-500 ${mode === 'dark' ? 'bg-gray-800 text-white' : 'bg-gray-100 text-black'}`}>
                 <div>
                     <h1 className={`text-3xl font-bold mb-4 ${mode === 'dark' ? 'text-white' : 'text-black'}`}>Get in Touch</h1>
                     <p className={`text-gray-600 mb-6 ${mode === 'dark' ? 'text-white' : 'text-black'}`}>
