@@ -8,7 +8,7 @@ const Navbar = ({ mode, toggleMode }) => {
     const [dropdown, setDropdown] = useState(false)
 
     return (
-        <div className={`px-5 py-5 flex justify-between items-center sticky top-0 h-[70px] transition-all duration-500 ${mode === 'dark' ? 'bg-gray-600' : 'bg-gray-200'}`}>
+        <div className={`px-5 py-5 flex justify-between items-center sticky top-0 h-[70px] transition-all duration-500 ${mode === 'dark' ? 'bg-gray-800' : 'bg-gray-200'}`}>
             <img src={blackLogo} alt="Logo" className="w-12 h-12 object-contain" />
 
             <button onClick={() => setDropdown(!dropdown)} className={`px-4 py-2 rounded-md md:hidden ${mode === 'light' ? 'bg-black text-white' : 'bg-white text-black'}`} style={{ cursor: 'pointer' }}>menu</button>
