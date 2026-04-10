@@ -1,7 +1,8 @@
 import React from 'react'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import blackLogo from '../assets/black_Logo.png'
+import blackLogo from '../assets/Logo-black.png'
+import whiteLogo from '../assets/Logo-white.png'
 
 const Navbar = ({ mode, toggleMode }) => {
 
@@ -9,7 +10,7 @@ const Navbar = ({ mode, toggleMode }) => {
 
     return (
         <div className={`px-5 py-5 flex justify-between items-center sticky top-0 h-[70px] transition-all duration-500 ${mode === 'dark' ? 'bg-gray-800' : 'bg-gray-200'}`}>
-            <img src={blackLogo} alt="Logo" className="w-12 h-12 object-contain" />
+            <img src={mode === 'dark' ? whiteLogo : blackLogo} alt="Logo" className="h-10 w-10 sm:w-4 sm:h-4 md:w-8 md:h-8 object-contain" />
 
             <button onClick={() => setDropdown(!dropdown)} className={`px-4 py-2 rounded-md md:hidden ${mode === 'light' ? 'bg-black text-white' : 'bg-white text-black'}`} style={{ cursor: 'pointer' }}>menu</button>
 
