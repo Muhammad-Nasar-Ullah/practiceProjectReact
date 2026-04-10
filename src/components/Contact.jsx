@@ -48,7 +48,11 @@ const Contact = ({ mode }) => {
                     </p>
                 </div>
 
+                <hr className={`border-gray-200 border-2 rounded-full my-5 md:hidden ${mode === 'dark' ? 'border-gray-700' : 'border-gray-200'}`} />
+
                 <form onSubmit={handleSubmit} className={`space-y-4 ${mode === 'dark' ? 'text-white' : 'text-black'}`}>
+
+                    <h3 className={`text-3xl font-bold ${mode === 'dark' ? 'text-white' : 'text-black'}`}>Write a feedback</h3>
 
                     <div>
                         <label className={`block mb-1 font-medium ${mode === 'dark' ? 'text-white' : 'text-black'}`}>Name</label>
