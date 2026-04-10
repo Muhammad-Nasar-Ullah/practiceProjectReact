@@ -18,6 +18,7 @@ const Navbar = ({ mode, toggleMode }) => {
                         <li className={`${mode === 'dark' ? 'text-white' : 'text-black'}`}><Link to='/'>Home</Link></li>
                         <li className={`${mode === 'dark' ? 'text-white' : 'text-black'}`}><Link to='/about'>About</Link></li>
                         <li className={`${mode === 'dark' ? 'text-white' : 'text-black'}`}><Link to='/contact'>Contact</Link></li>
+                        <button onClick={() => setDropdown(false)} className={`px-3 py-1 rounded-md absolute top-5 right-5 ${mode === 'light' ? 'bg-gray-600 text-white' : 'bg-white text-black'}`} style={{ cursor: 'pointer' }}>close</button>
                     </ul>
                     <button onClick={toggleMode} className={`px-4 py-2 rounded-md ${mode === 'light' ? 'bg-black text-white' : 'bg-white text-black'}`} style={{ cursor: 'pointer' }}>{mode === 'light' ? 'Enable DarkMode' : 'Enable LightMode'}</button>
                 </div>
